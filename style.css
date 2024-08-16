@@ -13,3 +13,106 @@
   --light-black: #232323cb;
   --back: #000000;
 }
+
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #000000;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  margin: 0;
+  font-family: 'Lato', sans-serif;
+  position: relative;
+}
+
+.container {
+  margin: 30px auto;
+  width: 350px;
+  padding: 20px;
+}
+
+h1 {
+  letter-spacing: 1px;
+  margin: 0;
+  color: var(--white);
+}
+
+.titulo{
+    color: var(--white);
+    align-self: center;
+}
+
+h3 {
+  padding-bottom: 10px;
+  margin: 40px 0 10px;
+  color: var(--white);
+}
+
+h4{
+  color: var(--white);
+}
+
+.saldo{
+  font-size: 12px;
+  color: var(--white);
+  font-weight: bold;
+}
+
+.inc-exp-container {
+  box-shadow: var(--box-shadow);
+  display: flex;
+  justify-content: space-between;
+  margin: 20px 0;
+  border-radius: 6px;
+  gap: 20px;
+}
+
+.inc-exp-container > div {
+  background-color: var(--grey-dark);
+  padding: 20px 0;
+  flex: 1;
+  text-align: center;
+  border-radius: 6px;
+}
+
+.money {
+  font-size: 20px;
+  letter-spacing: 1px;
+  margin: 5px 0;
+}
+
+.money.plus {
+  color: var(--green);
+}
+
+.money.minus {
+  color: var(--red);
+}
+
+label {
+  display: inline-block;
+  margin: 10px 0;
+}
+
+input[type='text'],
+input[type='number'] {
+  border: none;
+  outline: none;
+  border-radius: 2px;
+  display: block;
+  font-size: 16px;
+  padding: 10px;
+  width: 100%;
+  border-radius: 20px;
+}
+
+input::placeholder{
+    color: grey;
+    font-size: 12px;
+}
