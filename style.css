@@ -1,0 +1,15 @@
+@import url('https://fonts.googleapis.com/css?family=Lato&display=swap');
+
+:root {
+  --box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  --grey-dark: #2e2e2e;
+  --grey-dark-bg: #7e7d7d2d;
+  --white: #fff;
+  --white-bg: #efefef;
+  --red: red;
+  --green: #2ecc71;
+  --grey: grey;
+  --light-blue: #0066ff;
+  --light-black: #232323cb;
+  --back: #000000;
+}
