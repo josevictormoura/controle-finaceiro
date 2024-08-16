@@ -266,3 +266,39 @@ ion-icon[name="close-outline"]:hover{
   background-color: var(--red);
   color: var(--white);
 }
+
+/* style alert list null */
+
+.contentainerAlert{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  gap: 10px;
+  background: var(--grey-dark);
+  padding: 10px;
+  border-radius: 6px;
+}
+
+.ion-icon{
+  color: var(--white);
+  background-color: grey;
+  padding: 2px 5px;
+  border-radius: 50%;
+  font-size: 20px;
+}
+
+.spanText{
+  color: var(--white);
+}
+
+/* animation form */
+
+.animate{
+  animation: animatezoom 0.4s;
+}
+
+@keyframes animatezoom{
+  from{transform: scale(0)}
+  to{transform: scale(1);}
+}
