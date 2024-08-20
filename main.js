@@ -59,3 +59,53 @@ function init() {
 }
 
 init()
+
+btnAddTransaction.addEventListener('click', ()=>{
+    modalForm.classList.add('active')
+    modalForm.querySelector('.modal-container').classList.add('animate')
+})
+
+document.querySelector('.btn-close-modal').addEventListener('click', ()=>{
+    closeModalForm()
+})
+
+modalForm.addEventListener('click', event => {
+    if (event.target === modalForm) {
+        closeModalForm()
+    }
+})
+
+const closeModalForm = () => modalForm.classList.remove('active')
+
+form.addEventListener('submit', handleFormSubit)
+
+function handleFormSubit(event) {
+    event.preventDefault()
+
+    const nameTransaction = nameInputTransaction.value.trim()
+    const valueTransaction = valueInputTransaction.value.trim()
+    const formIsValid = nameTransaction === "" && valueTransaction === ""
+    const idRandomTransaction = () => Math.floor(Math.random() * 1000)
+
+    if (formIsValid) {
+        alert('Preencha todos os campos do formulario porfavor!')
+        return
+    }
+
+    const transaction = {
+        id: idRandomTransaction(),
+        name: nameInputTransaction.value,
+        value: Number(valueInputTransaction.value)
+    }
+
+    addTransactionLocalStorage(transaction)
+    init()
+    updateStatusScren()
+    closeModalForm()
+    clearFieldForm()
+}
+
+function clearFieldForm() {
+    nameInputTransaction.value = ""
+    valueInputTransaction.value = ""
+}
