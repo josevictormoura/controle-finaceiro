@@ -109,3 +109,26 @@ function clearFieldForm() {
     nameInputTransaction.value = ""
     valueInputTransaction.value = ""
 }
+
+function checkListTransactionsNull() {
+
+    const contentAlert = document.createElement('div')
+    contentAlert.classList.add('contentainerAlert')
+    
+    const ionIcon = document.createElement('ion-icon')
+    ionIcon.setAttribute('name', 'alert-circle-outline')
+    ionIcon.classList.add('ion-icon')
+    
+    const span = document.createElement('span')
+    span.classList.add('spanText')
+
+    const checkListNull = transactions.length === 0
+
+    if (checkListNull) {
+        span.innerHTML = 'Nenhuma transação no momento, clique em adicionar!'
+        listTransactionsUl.appendChild(contentAlert)
+    }
+    
+    contentAlert.appendChild(ionIcon)
+    contentAlert.appendChild(span)
+}
