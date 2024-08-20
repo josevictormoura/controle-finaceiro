@@ -30,3 +30,32 @@ function addTransactionIntoDom(transaction) {
     `
     listTransactionsUl.append(li)
 }
+
+function updateStatusScren() {
+    const transactionValues = transactions.map(transaction => transaction.value)
+    const total = transactionValues.reduce((accumulation, value) => accumulation + value ,0).toFixed(2)
+    const receita = document.querySelector('#money-plus')
+    const despesa = document.querySelector('#money-minus')
+
+    if (transactionValues.length === 0) {
+        receita.innerHTML = '+ R$ 0.00'
+        despesa.innerHTML = '- R$ 0.00'
+    }else{
+       const receitaValue = transactionValues.filter(value => value > 0).reduce((accumulation, value) => accumulation + value ,0).toFixed(2)
+       const despesaValue = transactionValues.filter(value => value < 0).reduce((accumulation, value) => accumulation + value ,0).toFixed(2)
+        
+       receita.textContent = `R$ ${receitaValue}`
+       despesa.textContent = `R$ ${despesaValue}`
+    }
+
+    document.querySelector('#balance').textContent = `R$ ${total}`
+}
+
+function init() {
+   listTransactionsUl.innerHTML = ""
+   transactions.forEach(addTransactionIntoDom)
+   updateStatusScren()
+   checkListTransactionsNull()
+}
+
+init()
