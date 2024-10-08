@@ -13,10 +13,32 @@ function addTransactionLocalStorage(transaction) {
     setLocalStorage(transactions)
 }
 
-function removeTransaction(id) {
-    transactions = transactions.filter(transaction => transaction.id !== id)
-    setLocalStorage(transactions)
-    init()
+const modalConfirmeDelete = document.querySelector('.container-remover-transaction')
+
+const showModalConfirmeDelete = () => {
+    modalConfirmeDelete.classList.add('active')
+    modalConfirmeDelete.querySelector('.content-remover-transaction').classList.add('animate')
+}
+const closeModalConfirmeDelete = () => document.querySelector('.container-remover-transaction').classList.remove('active')
+
+
+function confirmeRemoverTransaction(id) {
+    showModalConfirmeDelete()
+
+    modalConfirmeDelete.querySelector('.content-remover-transaction').addEventListener('click', (e)=>{
+        if (e.target.id === 'btn-remover-transacao') {
+            transactions = transactions.filter(transaction => transaction.id !== id)
+            console.log(transactions);
+            setLocalStorage(transactions)
+            closeModalConfirmeDelete()
+            init()
+        }
+
+        if (e.target.id === 'btn-cancelar-remover') {
+            closeModalConfirmeDelete()
+        }
+    })
+
 }
 
 function addTransactionIntoDom(transaction) {
@@ -26,7 +48,8 @@ function addTransactionIntoDom(transaction) {
     const li = document.createElement('li')
     li.classList.add(clasCSS)
     li.innerHTML = `
-        ${transaction.name} <span>${operador} R$ ${transactionValue} </span><button class="delete-btn" onClick="removeTransaction(${transaction.id})"><ion-icon name="trash-outline"></ion-icon></button>
+        ${transaction.name} <span>${operador} R$ ${transactionValue} </span><button class="delete-btn" onClick="confirmeRemoverTransaction(${transaction.id})"><ion-icon name="trash-outline"></ion-icon></button>
+        
     `
     listTransactionsUl.append(li)
 }

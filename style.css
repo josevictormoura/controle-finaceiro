@@ -267,6 +267,64 @@ ion-icon[name="close-outline"]:hover{
   color: var(--white);
 }
 
+/* modal confirme delete */
+
+.container-remover-transaction{
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: var(--light-black);
+  height: 100vh;
+  width: 100%;
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+/* modal show js */
+
+.container-remover-transaction.active{
+  display: flex;
+}
+
+.content-remover-transaction{
+  display: flex;
+  flex-direction: column;
+  width: 350px;
+  background-color: var(--white-bg);
+  padding: 20px 20px;
+  border-radius: 10px;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  /* margin-top: 50px; */
+}
+
+.content-remover-transaction h3{
+  margin-top: 10px;
+  color: black;
+  font-size: 15px;
+}
+
+.content-remover-transaction div{
+  display: flex;
+  gap: 10px;
+}
+
+.content-remover-transaction button{
+  padding: 6px 12px;
+  border: none;
+  color: white;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.content-remover-transaction #btn-cancelar-remover{
+  background-color: grey;
+}
+.content-remover-transaction #btn-remover-transacao{
+  background-color: red;
+}
+
 /* style alert list null */
 
 .contentainerAlert{
